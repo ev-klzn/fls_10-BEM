@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lesson 10</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="header"></header>
+			<main class="main">
+
+				<!-- Б.Э.М. -->
+
+				<!-- Блок -->
+				<!-- 
+					НЕЗАВИСИМЫЙ объект.
+					НЕ влияет на окружение (внешние объекты).
+
+					Имя класса БЭМ блока:
+					1) Имя должно соответствовать 
+						содержанию либо конструкции
+						Отвечать на вопрос "Что это?"
+					2) Английский язык (Латиница)
+					3) Нижний регистр
+					4) Если слов несколько, разделяем дефисом (-).
+					5) НИКАКОЙ ИЕРАРХИИ!!!
+
+					Мы можем вкладывать 
+					сколько угодно БЭМ блоков друг в друга,
+					также БЭМ блоки можно вкладывать в БЭМ элементы
+				 -->
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestiae ullam culpa sunt, voluptatum autem facilis nihil neque cumque soluta amet est minima non voluptas error totam quas, illum magni.
+				</p>
+				<div class="block">
+					<div class="who-we-are">
+						Я типа БЭМ блок 8)
+						<!-- НЕ верно (попытка иерархии) -->
+						<div class="who-we-are-text">
+							<!-- Верно -->
+							<div class="some-block"></div>
+						</div>
+					</div>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestiae ullam culpa sunt, voluptatum autem facilis nihil neque cumque soluta amet est minima non voluptas error totam quas, illum magni.
+				</p>
+				<div class="who-we-are">
+					Я типа БЭМ блок 8)
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem molestiae ullam culpa sunt, voluptatum autem facilis nihil neque cumque soluta amet est minima non voluptas error totam quas, illum magni.
+				</p>
+
+				<!-- Элемент -->
+
+				<!-- 
+					ЗАВИСИМЫЙ объект от своего БЭМ блока
+					ВСЕГДА находится внутри своего БЭМ блока
+					МОЖЕТ влиять на окружение (внешние объекты)
+
+					Имя класса БЭМ элемента:
+					0) Всегда начинается с имени 
+					первого родительского БЭМ блока и отделяется 
+						двумя нижними подчеркиваниями (__)
+					1) Имя должно соответствовать 
+						содержанию либо конструкции.
+						Отвечать на вопрос "Что это?"
+					2) Английский язык (Латиница)
+					3) Нижний регистр
+					4) Если слов несколько, разделяем дефисом (-).
+					5) НИКАКОЙ ИЕРАРХИИ!!!
+
+					БЭМ элементы можно вкладивать в другие 
+					БЭМ элементы своего БЭМ блока
+				 -->
+
+				<!-- Пример -->
+				<!-- Это БЭМ блок -->
+				<div class="who-we-are">
+					<!-- Это БЭМ элемент -->
+					<h1 class="who-we-are__title">Я заголовок</h1>
+					<!-- Это БЭМ элемент -->
+					<p class="who-we-are__text">
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae mollitia eveniet, laborum perspiciatis beatae distinctio laudantium quos corrupti veniam laboriosam ex deleniti rem, excepturi molestias magni? Eligendi accusamus fugiat aliquid!
+
+						<!-- БЭМ элемент (верно) -->
+						<a href="" class="who-we-are__link"></a>
+
+						<!-- БЭМ элемент (НЕ верно) -->
+						<a href="" class="who-we-are__text__link"></a>
+						<!-- БЭМ элемент (НЕ верно) -->
+						<a href="" class="who-we-are-text__link"></a>
+						<!-- БЭМ элемент (НЕ верно) -->
+						<!-- ПОПЫТКА ИЕРАРХИИ!!!! -->
+						<a href="" class="who-we-are__text-link"></a>
+
+						<!-- Это БЭМ блок -->
+						<a href="" class="link">Я ссылка</a>
+					</p>
+				</div>
+
+				<!-- Пример -->
+				<div class="contacts">
+					<h2 class="contacts__title"></h2>
+					<div class="contacts__text"></div>
+					<div class="about">
+						<!-- БЭМ элемент (верно) -->
+						<p class="about__text"></p>
+
+						<!-- БЭМ элемент (не верно) -->
+						<p class="contacts__text"></p>
+					</div>
+				</div>
+
+				<!-- Пример -->
+				<!-- БЭМ блок -->
+				<div class="promice">
+					<div class="promice__title"></div>
+					<div class="promice__sub-title"></div>
+					<div class="promice__items">
+						<div class="item">
+							<div class="item__icon"></div>
+							<div class="item__body">
+								<div class="item__label"></div>
+								<div class="item__text"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="promice">
+					<div class="promice__title"></div>
+					<div class="promice__sub-title"></div>
+					<div class="promice__items">
+						<div class="promice__item">
+							<div class="promice__icon"></div>
+							<div class="promice__body">
+								<div class="promice__label"></div>
+								<div class="promice__text"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Модификатор -->
+
+				<!-- 
+					Позволяет вносить отличия 
+					для БЭМ блока либо БЭМ элемента
+
+					Имя класса БЭМ элемента:
+					0) Добавляется как еще один класс
+					для БЭМ блока или БЭМ элемента.
+					Начинается с полного имени БЭМ блока или БЭМ элемента и отделяется 
+						одним нижними подчеркиванием (_)
+					1) Имя должно соответствовать 
+						вносимым модификациям. Отвечать на вопрос "какой? что изменяем?"
+					2) Английский язык (Латиница)
+					3) Нижний регистр
+					4) Если слов несколько, разделяем дефисом (-).
+					5) НИКАКОЙ ИЕРАРХИИ!!!
+				 -->
+
+				<div class="who-we-are">
+					Вот он я - who-we-are
+					<div class="who-we-are__title">
+						Я заголовок
+					</div>
+					<div class="who-we-are__text">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias doloribus, officia incidunt architecto aut magnam repellendus similique veniam amet suscipit ratione blanditiis praesentium! Hic autem consequuntur, ducimus voluptate eaque ab.
+					</div>
+				</div>
+				<div class="who-we-are who-we-are_pupple">
+					Вот он я - who-we-are (но не совсем)
+					<!-- Верно -->
+					<div class="who-we-are__title who-we-are__title_margin-font">
+						Я заголовок (но не совсем такой же)
+					</div>
+					<!-- НЕ верно -->
+					<div class="who-we-are__title who-we-are__margin-font">
+						Я заголовок (но не совсем такой же)
+					</div>
+					<div class="who-we-are__text">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita laboriosam autem quod atque facilis, reprehenderit magni id, adipisci a repellendus sit quisquam accusamus harum nihil quo voluptas soluta repudiandae minus.
+					</div>
+				</div>
+
+
+				<!-- Микс -->
+
+				<!-- 
+					Смесь БЭМ блока и БЭМ элемента 
+					для одного объекта.
+					При этом БЭМ элемент может
+					выступать в роли БЭМ модификатора
+				 -->
+
+				<div class="who-we-are">
+					Я типа БЭМ блок 8)
+				</div>
+
+				<div class="main-page">
+					<!-- Одновременно и БЭМ блок и БЭМ элемент -->
+					<div class="who-we-are main-page__who-we-are">
+						Я типа БЭМ блок 8) Я еще и элемент main-page
+					</div>
+				</div>
+
+				<div class="contacts">
+					<div class="who-we-are contacts__who-we-are">
+						Я типа БЭМ блок 8) Я еще и элемент main-page
+					</div>
+				</div>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, sapiente adipisci, doloremque mollitia quidem ipsum doloribus optio explicabo obcaecati ab vitae. Excepturi debitis minus facere alias amet iusto quibusdam illum?
+
+
+				<div class="who-we-are">
+					<div class="who-we-are__header header-item">
+						<div class="header-item__title"></div>
+						<div class="header-item__sub-title"></div>
+					</div>
+				</div>
+
+
+				<div class="promice">
+					<div class="promice__header header-item">
+						<div class="header-item__title"></div>
+						<div class="header-item__sub-title"></div>
+					</div>
+					<div class="promice__icon"></div>
+					<div class="promice__items">
+						<!-- НЕ верно (попытка иерархии) -->
+						<div class="promice__item promice-item">
+
+						</div>
+						<!-- верно -->
+						<div class="promice__item item-promice">
+							<div class="item-promice__icon"></div>
+							<div class="item-promice__body">
+								<div class="item-promice__title"></div>
+								<div class="item-promice__text"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<!-- Верно не верно -->
+				<div class="some-block">
+					<!-- НЕ верно (попытка иерархии) -->
+					<a href="" class="some-block-link"></a>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<div class="some-block__title">
+						<!-- Верно -->
+						<a href="" class="link"></a>
+					</div>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<div class="some-block__title"></div>
+					<div class="some-block__text">
+						<div class="item">
+							<!-- НЕ верно, элемент НЕ своего блока -->
+							<a href="" class="some-block__link"></a>
+						</div>
+						<div class="item">
+							<!-- верно -->
+							<a href="" class="item__link"></a>
+						</div>
+					</div>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<div class="some-block__title"></div>
+					<a href="" class="link"></a>
+				</div>
+				<!-- НЕ верно, элемент НЕ своего блока -->
+				<div class="some-block__text"></div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<!-- верно, это микс' -->
+					<a href="" class="some-block__link link"></a>
+				</div>
+
+				<!-- ------------ -->
+
+				<!-- верно -->
+				<div class="some-block">
+					<div class="some-block__items">
+						<div class="some-block__item item-some-block">
+							<div class="item-some-block__title"></div>
+							<div class="item-some-block__text"></div>
+							<div class="block-items">
+								<div class="block-items__title"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<div class="some-block__text"></div>
+					<!-- НЕ верно (попытка иерархии) -->
+					<div class="some-block__body some-block-body">
+						<div class="some-block-body__title"></div>
+						<div class="some-block-body__text"></div>
+					</div>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="some-block">
+					<div class="some-block__text"></div>
+					<!-- 
+						НЕ верно записан модификатор! 
+						нет объекта модификации
+						нет ответа на вопросы "какой?", "что изменяет?"
+					-->
+					<a href="" class="some-block_link"></a>
+				</div>
+
+				<!-- ------------ -->
+
+				<div class="block">
+					<div class="block__title">Я заголовок</div>
+					<div class="block__text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur eveniet accusamus deleniti autem aspernatur aliquam animi debitis error possimus, voluptatibus minima maxime quaerat beatae fuga illum tempora sed porro hic.
+					</div>
+					<div class="block">
+						<div class="block__title">Я заголовок</div>
+						<div class="block__text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur eveniet accusamus deleniti autem aspernatur aliquam animi debitis error possimus, voluptatibus minima maxime quaerat beatae fuga illum tempora sed porro hic.
+						</div>
+						<div class="block">
+							<div class="block__title">Я заголовок</div>
+							<div class="block__text">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur eveniet accusamus deleniti autem aspernatur aliquam animi debitis error possimus, voluptatibus minima maxime quaerat beatae fuga illum tempora sed porro hic.
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<ul class="list">
+					<li class="list__item"></li>
+					<li class="list__item">
+						<ul class="list">
+							<li class="list__item"></li>
+							<li class="list__item"></li>
+							<li class="list__item"></li>
+							<li class="list__item"></li>
+						</ul>
+					</li>
+					<li class="list__item"></li>
+					<li class="list__item"></li>
+				</ul>
+
+
+
+				<div class="contacts">
+					<div class="page">
+						<div class="page__title">
+							Я заголовок
+						</div>
+						<div class="page__text">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt fugiat inventore officiis ipsum cumque? At officia amet voluptatibus? Delectus praesentium accusamus sapiente, magnam laborum distinctio nesciunt numquam molestias odit placeat.
+						</div>
+					</div>
+				</div>
+				<div class="about">
+					<div class="advantages">
+						<div class="advantages__text">123</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+			</main>
+			<footer hidden class="footer">
+				<a href="" class="link">Я ссылка</a>
+			</footer>
+		</div>
+	</body>
+</html>
